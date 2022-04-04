@@ -1,0 +1,10 @@
+string tostring(int x)
+{
+    string s=" ";
+    while(x>0)
+    {
+        s.insert(0,1,x%10+'0');
+        x/=10;
+    }
+    return s;
+}
