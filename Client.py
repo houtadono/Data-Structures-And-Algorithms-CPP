@@ -31,5 +31,4 @@ print("Hieu 2 so la: ", hieu)
 print("Tich 2 so la: ", tich)
 print("Thuong 2 so la: ", thuong)
 
-
-input()
+client.close()
