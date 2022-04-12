@@ -15,10 +15,11 @@ print("!Connected to the server!")
 print("client address: ",client.getsockname())
 
 print("Nhap 2 so a va b: ")
-a = input()
-b = input()
-client.sendall(a.encode(FORMAT))
-client.sendall(b.encode(FORMAT))
+a = int(input("Nhap a: "))
+client.sendall(str(a).encode(FORMAT))
+
+b = int(input("Nhap b: "))
+client.sendall(str(b).encode(FORMAT))
 
 tong = client.recv(1024).decode(FORMAT)
 hieu = client.recv(1024).decode(FORMAT)
