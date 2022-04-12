@@ -1,10 +1,8 @@
-from pydoc import cli
 import socket 
 import os
 
-IP = "10.170.44.136"
+IP = "192.168.43.155"
 SERVER_PORT = 57123
-
 FORMAT ="utf8" 
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -22,10 +20,13 @@ b = int(input("Nhap b: "))
 client.sendall(str(b).encode(FORMAT))
 
 tong = client.recv(1024).decode(FORMAT)
+client.sendall(tong.encode(FORMAT))
 hieu = client.recv(1024).decode(FORMAT)
+client.sendall(tong.encode(FORMAT))
 tich = client.recv(1024).decode(FORMAT)
+client.sendall(tong.encode(FORMAT))
 thuong = client.recv(1024).decode(FORMAT)
-
+client.sendall(tong.encode(FORMAT))
 print("Tong 2 so la: ", tong)
 print("Hieu 2 so la: ", hieu)
 print("Tich 2 so la: ", tich)

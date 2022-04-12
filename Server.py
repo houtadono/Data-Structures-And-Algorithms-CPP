@@ -1,7 +1,7 @@
 import socket
 import os
     
-IP = "10.170.44.136"
+IP = "192.168.43.155"
 SERVER_PORT = 57123
 FORMAT ="utf8"
 
@@ -25,8 +25,12 @@ while 1:
     tich = int(a)* int(b)
     thuong = int(a)/ int(b)
     conn.sendall(str(tong).encode(FORMAT))
+    conn.recv(1024)
     conn.sendall(str(hieu).encode(FORMAT))
+    conn.recv(1024)
     conn.sendall(str(tich).encode(FORMAT))
+    conn.recv(1024)
     conn.sendall(str(thuong).encode(FORMAT))
+    conn.recv(1024)
     print("Da tra ket qua ve client!!!!")
     conn.close()
