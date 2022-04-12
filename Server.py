@@ -1,15 +1,15 @@
 import socket
 import os
     
-HOST = "127.0.0.1"
-SERVER_PORT = 65432
+IP = "10.170.44.136"
+SERVER_PORT = 57123
 FORMAT ="utf8"
 
 s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((HOST,SERVER_PORT))
+s.bind((IP,SERVER_PORT))
 s.listen() 
 
-print("server:",HOST,SERVER_PORT)
+print("server:",IP,SERVER_PORT)
 print("Waiting for Client....") 
 
 conn, addr = s.accept()
@@ -18,11 +18,20 @@ print("!Client connected!")
 print("client address:",addr) 
 print("conn:", conn.getsockname()) 
 
-y=conn.recv(1024).decode(FORMAT)
-print("Da nhan xau ki tu: "+y)
-str_new= y.upper() 
 
-conn.sendall(str_new.encode(FORMAT))
-print("Da tra ve client xau ki tu: "+y)
 
+
+a=conn.recv(1024).decode(FORMAT)
+b=conn.recv(1024).decode(FORMAT)
+print("Da nhap 2 so a va b la :", a," va ", b)
+tong = int(a)+ int(b)
+hieu = int(a)- int(b)
+tich = int(a)* int(b)
+thuong = int(a)/ int(b)
+
+conn.sendall(str(tong).encode(FORMAT))
+conn.sendall(str(hieu).encode(FORMAT))
+conn.sendall(str(tich).encode(FORMAT))
+conn.sendall(str(thuong).encode(FORMAT))
+print("Da tra ket qua ve client!!!!")
 input()
